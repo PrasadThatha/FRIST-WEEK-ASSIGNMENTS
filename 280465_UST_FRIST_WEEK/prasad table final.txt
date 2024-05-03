@@ -1,0 +1,182 @@
+*&---------------------------------------------------------------------*
+*& Report ZPRASAD_UST_TAB_FINAL
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprasad_ust_tab_final.
+
+*TYPES : BEGIN OF ls_tab,
+*          kunnr  TYPE kunnr,
+*          land1 TYPE  land1_gp,
+*          name1 TYPE  name1_gp,
+*          name2 TYPE  name2_gp,
+*          ort01  TYPE ort01_gp,
+*        END OF ls_tab.
+*
+*DATA : lt_tab   TYPE STANDARD TABLE OF ls_tab,
+*       wa_tab   TYPE ls_tab,
+*       lv_kunnr TYPE kunnr.
+*
+*SELECT-OPTIONS s_kunnr FOR LV_kunnr.
+*PARAMETERS p_name1 TYPE kna1-land1.
+*
+*START-OF-SELECTION.
+*
+*SELECT kunnr land1 name1  name2 ort01
+*  INTO TABLE lT_tab
+*  FROM kna1
+*  WHERE kunnr IN s_kunnr AND land1 EQ p_name1.
+*
+*IF sy-subrc EQ 0.
+*  WRITE : 'NUMBER OF RECORDS FOUND ARE ',sy-dbcnt.
+*ELSE.
+*  WRITE : 'NO RECORDS ARE FOUND  ',sy-dbcnt.
+*ENDIF.
+*
+*end-of-SELECTION.
+*
+*
+*FORMAT COLOR COL_POSITIVE.
+*
+*LOOP AT lt_tab INTO wa_tab.
+*  WRITE:/
+*  wa_tab-kunnr,
+*  wa_tab-land1 ,
+*  wa_tab-name1  ,
+*  wa_tab-name2 ,
+*  wa_tab-ort01 .
+*ENDLOOP.
+*FORMAT COLOR OFF.
+*
+*BACK.
+*
+*WRITE /120 'PRASAD'.
+*ULINE.
+
+*TYPES : BEGIN OF LS_TAB,
+*VBELN TYPE  VBELN_VA,
+*ERDAT TYPE  ERDAT,
+*ERZET  TYPE ERZET,
+*ERNAM  TYPE ERNAM,
+*END OF LS_TAB.
+*
+*DATA : LT_TAB TYPE STANDARD TABLE OF LS_TAB,
+*      WA_TAB TYPE LS_TAB.
+*SELECT-OPTIONS s_vbeln FOR wa_tab-vbeln.
+*
+*START-OF-SELECTION.
+*
+*SELECT VBELN ERDAT ERZET ERNAM
+*  INTO TABLE LT_TAB
+*  FROM VBAK
+*  WHERE VBELN IN s_vbeln.
+*
+*
+*  IF SY-SUBRC EQ 0.
+*    WRITE : 'NUMBER OF RECORDS FOUND ARE ',SY-DBCNT.
+*    ENDIF.
+*
+*    ULINE.
+*
+*END-OF-SELECTION.
+*FORMAT COLOR COL_POSITIVE.
+* LOOP AT lt_tab INTO wa_tab.
+*    WRITE : / wa_tab-vbeln,
+*    wa_tab-VBELN,
+*     wa_tab-ERDAT ,
+*     wa_tab-ERZET,
+*     wa_tab-ERNAM.
+*
+*  ENDLOOP.
+*  FORMAT COLOR off.
+
+
+
+* #2
+
+
+
+*TYPES : BEGIN OF ls_tab,
+*          kunnr  TYPE kunnr,
+*          land1 TYPE  land1_gp,
+*          name1 TYPE  name1_gp,
+*          name2 TYPE  name2_gp,
+*          ort01  TYPE ort01_gp,
+*        END OF ls_tab.
+*
+*DATA : lt_tab   TYPE STANDARD TABLE OF ls_tab,
+*       wa_tab   TYPE ls_tab,
+*       lv_kunnr TYPE kunnr.
+*
+*SELECT-OPTIONS s_kunnr FOR LV_kunnr.
+*PARAMETERS p_name1 TYPE kna1-land1.
+*
+*START-OF-SELECTION.
+*
+*SELECT kunnr land1 name1  name2 ort01
+*  INTO TABLE lT_tab
+*  FROM kna1
+*  WHERE kunnr IN s_kunnr AND land1 EQ p_name1.
+*
+*IF sy-subrc EQ 0.
+*  WRITE : 'NUMBER OF RECORDS FOUND ARE ',sy-dbcnt.
+*ELSE.
+*  WRITE : 'NO RECORDS ARE FOUND  ',sy-dbcnt.
+*ENDIF.
+*
+*end-of-SELECTION.
+*
+*
+*FORMAT COLOR COL_POSITIVE.
+*
+*LOOP AT lt_tab INTO wa_tab.
+*  WRITE:/
+*  wa_tab-kunnr,
+*  wa_tab-land1 ,
+*  wa_tab-name1  ,
+*  wa_tab-name2 ,
+*  wa_tab-ort01 .
+*ENDLOOP.
+*FORMAT COLOR OFF.
+*
+*BACK.
+*
+*WRITE /120 'PRASAD'.
+*ULINE.
+
+TYPES : BEGIN OF LS_TAB,
+VBELN TYPE  VBELN_VA,
+ERDAT TYPE  ERDAT,
+ERZET	TYPE ERZET,
+ERNAM	TYPE ERNAM,
+END OF LS_TAB.
+*
+DATA : LT_TAB TYPE STANDARD TABLE OF LS_TAB,
+      WA_TAB TYPE LS_TAB.
+SELECT-OPTIONS s_vbeln FOR wa_tab-vbeln.
+
+START-OF-SELECTION.
+
+SELECT VBELN ERDAT ERZET ERNAM
+  INTO TABLE LT_TAB
+  FROM VBAK
+  WHERE VBELN IN s_vbeln.
+
+
+  IF SY-SUBRC EQ 0.
+    WRITE : 'NUMBER OF RECORDS FOUND ARE ',SY-DBCNT.
+    ENDIF.
+
+    ULINE.
+
+END-OF-SELECTION.
+FORMAT COLOR COL_POSITIVE.
+ LOOP AT lt_tab INTO wa_tab.
+    WRITE : / wa_tab-vbeln,
+    wa_tab-VBELN,
+     wa_tab-ERDAT ,
+     wa_tab-ERZET,
+     wa_tab-ERNAM.
+
+  ENDLOOP.
+  FORMAT COLOR off.

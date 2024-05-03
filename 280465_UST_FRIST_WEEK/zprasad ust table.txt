@@ -1,0 +1,36 @@
+*&---------------------------------------------------------------------*
+*& Report ZPRASAD_UST_TABLE
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprasad_ust_table.
+*TABLES ZPRASAD_AMAZON.
+*DATA : P_ID TYPE ZPRASAD_AMAZON-C_ID ,
+*             P_NAME TYPE ZPRASAD_AMAZON-CUST_NAME.
+*PARAMETERS P_IN TYPE ZPRASAD_AMAZON.
+*
+*SELECT C_ID CUST_NAME
+*  INTO (P_ID , P_NAME)
+*  FROM ZPRASAD_AMAZON
+*  WHERE C_ID = P_IN.
+*  ENDSELECT.
+*
+*  WRITE / :P_ID ,P_NAME.
+
+
+
+
+TABLES zprasad_amazon.
+DATA : p_id   TYPE zprasad_amazon-c_id,
+       p_name TYPE zprasad_amazon-cust_name.
+
+SELECT-OPTIONS s_lv FOR p_id.
+*PARAMETERS p_in TYPE zprasad_amazon.
+
+SELECT c_id cust_name
+  INTO (p_id , p_name)
+  FROM zprasad_amazon
+  WHERE c_id IN s_lv .
+
+  WRITE / :p_id ,p_name.
+ENDSELECT.

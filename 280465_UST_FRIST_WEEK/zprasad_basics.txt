@@ -1,0 +1,75 @@
+*&---------------------------------------------------------------------*
+*& Report ZPRASAD_BASICS
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZPRASAD_BASICS.
+*data var TYPE i.
+*WRITE var.
+
+*data var TYPE i value 200.
+*WRITE var.
+
+*data var TYPE i value 2000.
+*WRITE var.
+
+*data : var1 type i value 400,
+*      var2 type i value 6000,
+*       var3 type i.
+*var3 = var1 + var2.
+*WRITE var3.
+
+*PARAMETERS: var1 type i ,
+*      var2 type i  .
+*      data var3 type i.
+*var3 = var1 + var2.
+*WRITE var3.
+
+
+*WRITE : 'current date is ', sy-datum.
+*write : 'current time is ' ,sy-uzeit.
+
+
+
+*
+*TABLES MARA.
+*
+*DATA : VAR_LAEDA TYPE MARA-LAEDA, "CLIENT
+*      VAR_MATNR TYPE MARA-MATNR. "MATERIAL NUMBER
+*
+*SELECT   MATNR LAEDA
+*  INTO  ( VAR_MATNR  , VAR_LAEDA )
+*  FROM MARA.
+*
+*WRITE :VAR_LAEDA , VAR_MATNR.
+*
+*ENDSELECT.
+
+
+
+TABLES MARA.
+
+DATA : VAR_LAEDA TYPE MARA-LAEDA, "CLIENT
+      VAR_MATNR TYPE MARA-MATNR. "MATERIAL NUMBER
+PARAMETERS V_VPSTA TYPE MARA-VPSTA.
+
+SELECT   MATNR LAEDA
+  INTO  ( VAR_MATNR  , VAR_LAEDA )
+  FROM MARA
+  WHERE VPSTA = V_VPSTA.
+
+WRITE :VAR_LAEDA , VAR_MATNR.
+
+ENDSELECT.
+
+
+
+*
+*TABLES MARA.
+*PARAMETERS :VAR_MANDT TYPE MARA-MANDT,
+*             VAR_MATNR TYPE MARA-MATNR.
+*
+*SELECT MANDT ,MATNR
+*  INTO (VAR_MANDT , VAR_MATNR )
+*  FROM MARA.
+*  WRITE : VAR_MATNR ,VAR_MANDR

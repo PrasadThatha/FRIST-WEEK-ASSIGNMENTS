@@ -1,0 +1,92 @@
+*&---------------------------------------------------------------------*
+*& Report ZPRASAD_UST_STRINGS
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprasad_ust_strings.
+** String Operations Reference..!!!!
+*PARAMETERS P_A(30).
+*WRITE P_A.
+
+
+** TRANSALATE ...
+*------------------
+
+
+*PARAMETERS P_A(20).
+*
+*TRANSLATE P_A TO UPPER CASE.
+*WRITE P_A.
+*
+*TRANSLATE P_A TO LOWER CASE.
+*WRITE P_A.
+
+
+** CONCATENATE
+*--------------------
+
+*PARAMETERS : P_A(10) LOWER CASE,
+*             P_B(20).
+*DATA P_RES(30).
+*
+*CONCATENATE P_A P_B INTO P_RES SEPARATED BY SPACE.
+*WRITE P_RES.
+*TRANSLATE P_A TO UPPER CASE.
+*WRITE P_A.
+
+
+
+**    SPLIT...!!!!
+
+*PARAMETERS PV_1(20).
+*DATA : LV_1(10),LV_2(10).
+*SPLIT PV_1 AT ',' INTO LV_1 LV_2.
+*WRITE /: LV_1 , LV_2.
+
+
+**OFFSETTING
+
+*
+*PARAMETERS P_A(20).
+*DATA P_RES(30).
+*P_RES = P_A+3(4).
+*WRITE P_RES.
+
+*
+*PARAMETERS p_a(20).
+*
+*TRANSLATE p_a TO UPPER CASE.
+*WRITE p_a.
+*TRANSLATE p_a to LOWER CASE.
+*write p_a.
+
+
+*PARAMETERS: p_a(20) LOWER CASE,p_b(20) LOWER CASE .
+*DATA lv_res(30).
+*CONCATENATE p_a p_b into lv_res.
+*WRITE lv_res.
+*
+*PARAMETERS: p_a(20) LOWER CASE .
+*DATA lv_res(30).
+*lv_res = p_a+0.
+*WRITE lv_res.
+
+*data p_a(20) value 'Prasad'.
+*write strlen( P_a ).
+
+*DATA : num1 TYPE i,
+*       num2 type i.
+*num1 = 8.
+*num2 = num1 * 2 ** 2.
+*write num2.
+
+*PARAMETERS : p_a(20),p_b(20).
+*IF p_a ca p_b.
+*  WRITE 'fOUND'.
+* ENDIF.
+
+DATA : LV_A TYPE I VALUE 10,
+      LV_B TYPE I VALUE 1.
+IF LV_B LT  LV_A .
+  WRITE 'LESS THAM'.
+ENDIF.

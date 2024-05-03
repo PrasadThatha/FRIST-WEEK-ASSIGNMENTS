@@ -1,0 +1,60 @@
+*&---------------------------------------------------------------------*
+*& Report ZPRASAD_UST_CTRLS
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprasad_ust_ctrls.
+*DO 10 TIMES.
+*  WRITE / 'Prasad_Ust'.
+*ENDDO.
+
+*DO 20 TIMES.
+*  WRITE / sy-index.
+*
+*ENDDO.
+*
+*PARAMETERS var1 TYPE i DEFAULT 10.
+*
+*WHILE var1 < 20.
+*
+*    var1 = var1 + 1.
+*
+*    IF var1 eq 14.
+*      CONTINUE.
+*    ELSEIF var1 eq 15.
+*       WRITE 'It Was Fifteeen'.
+*    ELSE.
+*      WRITE / var1.
+*    ENDIF.
+*ENDWHILE.
+
+
+
+*PARAMETERS var1 TYPE i DEFAULT 10.
+*
+*WHILE var1 < 20.
+*
+*  var1 = var1 + 1.
+*
+*  IF var1 EQ 14.
+*    CONTINUE.
+*  ELSEIF var1 EQ 15.
+*    STOP.
+*  ELSE.
+*    WRITE / var1.
+*  ENDIF.
+*ENDWHILE.
+
+
+
+PARAMETERS var1 TYPE i DEFAULT 10.
+
+WHILE var1 < 20.
+ write var1.
+  var1 = var1 + 1.
+ CHECK var1 > 15 .
+ EXIT.
+
+ENDWHILE.
+
+write : 'the value of the variable outside the loop is :' , var1.
